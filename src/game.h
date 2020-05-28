@@ -6,6 +6,9 @@
 #include "controller.h"
 #include "renderer.h"
 #include "snake.h"
+#include "obstacle.h"
+#include "wall.h"
+#include "audio.h"
 
 class Game {
  public:
@@ -18,16 +21,28 @@ class Game {
  private:
   Snake snake;
   SDL_Point food;
+  AudioPlayer player;
 
   std::random_device dev;
   std::mt19937 engine;
   std::uniform_int_distribution<int> random_w;
   std::uniform_int_distribution<int> random_h;
 
+  vector<vector<Obstacle>> obstacles; // placeholder for obstacles, better map should be used for grid of obstacles
+  Wall left_wall;
+  Wall right_wall;
+  Wall bottom_wall;
+  Wall top_wall;
   int score{0};
 
   void PlaceFood();
   void Update();
+
+  // TODO: 
+
+  void GenerateWall(); // generate walls, call in constructor 
+  void GenerateObstacles(); // generate random obstacles in level 
+
 };
 
 #endif
