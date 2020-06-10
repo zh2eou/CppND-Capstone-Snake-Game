@@ -28,7 +28,8 @@ class Game {
   std::uniform_int_distribution<int> random_w;
   std::uniform_int_distribution<int> random_h;
 
-  vector<vector<Obstacle>> obstacles; // placeholder for obstacles, better map should be used for grid of obstacles
+  vector<SDL_Point> obstacles; 
+
   Wall left_wall;
   Wall right_wall;
   Wall bottom_wall;

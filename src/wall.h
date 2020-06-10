@@ -2,21 +2,22 @@
 #define WALL_H
 
 #include <vector>
-#include "obstack.h"
 #include "SDL.h"
 
 class WALL {
  public:
-  Obstacle(int h, int w)
+  Obstacle(int h, int w, int holes)
       : _h(h),
-        _w(w) {
+        _w(w),
+        _holes (holes) {
 
         }
-
+  void GenerateWall(); // generate walls, call in constructor 
  private:
   int _h;
   int _w;
-  vector<Obstacle> _wall;
+  int _holes;
+  vector<SDL_Point> _wall;
 };
 
 #endif
